@@ -1,7 +1,34 @@
 # Tasks Manager web application
 
+
+
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.0-4baaaa.svg)](code_of_conduct.md)
 [![License: MIT](https://img.shields.io/github/license/vintasoftware/django-react-boilerplate.svg)](LICENSE.txt)
+
+## Rules for the project
+
+Develop a simple web application for managing tasks. Users should be able to create an account, log in, create, read, update, and delete tasks.
+Requirements:
+
+* User Authentication:
+  * Users should be able to register with their email and password.
+  * Users should be able to log in and log out.
+
+* Task Management:
+    * Users should be able to create a new task with a title and description.
+    * Users should be able to view a list of all their tasks.
+    * Users should be able to update the title and description of their tasks.
+    * Users should be able to delete a task.
+
+* Database:
+    * Use a relational database (e.g., SQLite, MySQL) to store user and task information.
+    * Each user should have their own set of tasks.
+
+* This will be our evaluation criteria:
+  * Functionality: Does the application meet the requirements?
+  * Code Quality: Is the code clean, well-organized, and well-documented?
+  * UI/UX: Is the user interface intuitive and easy to use?
+  * Database Design: Is the database schema efficient and scalable?
 
 ## About
 
