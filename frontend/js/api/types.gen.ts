@@ -80,7 +80,7 @@ export type Signup = {
 export type Task = {
   readonly id: number;
   title: string;
-  description?: string;
+  description: string;
   completed?: boolean;
   readonly created_at: string;
   readonly updated_at: string;
@@ -232,7 +232,7 @@ export type TasksListResponse = PaginatedTaskList;
 export type TasksCreateData = {
   requestBody: {
     title: string;
-    description?: string;
+    description: string;
     completed?: boolean;
   };
 };
@@ -249,7 +249,7 @@ export type TasksUpdateData = {
   id: number;
   requestBody: {
     title: string;
-    description?: string;
+    description: string;
     completed?: boolean;
   }
 };

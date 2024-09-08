@@ -8,24 +8,27 @@ const NavigationBar = () => {
   const { isAuthenticated, logout } = useContext(AuthContext);
 
   return (
-    <Navbar expand="lg" className="bg-body-tertiary">
-      <Container>
-        <Navbar.Brand>Task Manager</Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            {isAuthenticated ? (
-              <Nav.Link href="/" onClick={logout}>Logout</Nav.Link>
-            ) : (
-              <>
-                <Nav.Link href="/login/">Login</Nav.Link>
-                <Nav.Link href="/signup/">Signup</Nav.Link>
-              </>
-            )}
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+    <Container>
+      <Navbar expand="lg" className="bg-body-tertiary">
+        <Container>
+          <Navbar.Brand>Task Manager</Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="me-auto">
+              {isAuthenticated ? (
+                <Nav.Link href="/" onClick={logout}>Logout</Nav.Link>
+              ) : (
+                <>
+                  <Nav.Link href="/login/">Login</Nav.Link>
+                  <Nav.Link href="/signup/">Signup</Nav.Link>
+                </>
+              )}
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+      <div style={{ height: '20px' }} />
+    </Container>
   );
 }
 
