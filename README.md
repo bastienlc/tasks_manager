@@ -44,6 +44,10 @@ make docker_up # Start the application
 make docker_down # Stop the application
 ```
 
+You can access the frontend at http://localhost:8000/. The API documentation is available at http://localhost:8000/api/schema/swagger-ui/. The admin interface is available at http://localhost:8000/admin/ (you can create a superuser with `make docker_backend_shell` then `python manage.py createsuperuser`).
+
+If you're having trouble launching the application, you can check the template repository for more detailed instructions or contact me directly.
+
 ## Rational and design decisions
 
 While the application is simple, I wanted to showcase the use of technologies that I am familiar with. Django is especially powerful for quickly building backend applications, and efficient as a REST API. React is one of the most popular frontend libraries. The combination of Django and React is not always straightforward, here I simply use Django to serve the React application.
