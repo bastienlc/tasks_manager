@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { AccountsService } from '../api';
-import Button from 'react-bootstrap/Button';
+import { Button, Form, Container, Row, Col, Alert, Spinner } from 'react-bootstrap';
 import NavigationBar from '../components/Navbar';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from "../context/AuthContext";
@@ -42,38 +42,61 @@ const LoginPage = () => {
   };
 
   return (
-    <div>
+    <>
       <NavigationBar />
-      <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Email:</label>
-          <input
-            type="text"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <label>Password:</label>
-          <input
-            type="password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        {error && <p style={{ color: 'red' }}>{error}</p>}
-        <div>
-          <Button type="submit" disabled={loading}>
-            {loading ? 'Logging in...' : 'Login'}
-          </Button>
-        </div>
-      </form>
-    </div>
+      <Container className="mt-5">
+        <Row className="justify-content-center">
+          <Col md={6}>
+            <h2 className="text-center mb-4">Login</h2>
+            <Form onSubmit={handleSubmit}>
+              <Form.Group className="mb-3" controlId="formEmail">
+                <Form.Label>Email</Form.Label>
+                <Form.Control
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  placeholder="Enter your email"
+                  required
+                />
+              </Form.Group>
+
+              <Form.Group className="mb-3" controlId="formPassword">
+                <Form.Label>Password</Form.Label>
+                <Form.Control
+                  type="password"
+                  name="password"
+                  value={formData.password}
+                  onChange={handleChange}
+                  placeholder="Enter your password"
+                  required
+                />
+              </Form.Group>
+
+              {error && <Alert variant="danger">{error}</Alert>}
+
+              <div className="d-grid gap-2">
+                <Button variant="primary" type="submit" disabled={loading}>
+                  {loading ? (
+                    <>
+                      <Spinner
+                        as="span"
+                        animation="border"
+                        size="sm"
+                        role="status"
+                        aria-hidden="true"
+                      /> Logging in...
+                    </>
+                  ) : (
+                    'Login'
+                  )}
+                </Button>
+              </div>
+            </Form>
+          </Col>
+        </Row>
+      </Container>
+    </>
   );
 };
 
