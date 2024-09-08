@@ -153,7 +153,7 @@ export const getHeaders = async (
     );
 
   if (isStringWithValue(token)) {
-    headers["Authorization"] = `Bearer ${token}`;
+    headers["Authorization"] = `Token ${token}`;
   }
 
   if (isStringWithValue(username) && isStringWithValue(password)) {

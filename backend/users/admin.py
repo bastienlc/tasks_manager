@@ -1,26 +1,31 @@
+from authemail.admin import EmailUserAdmin
 from django.contrib import admin
-from django.contrib.auth.admin import UserAdmin
-from django.utils.translation import gettext_lazy as _
-
-from .models import User
+from django.contrib.auth import get_user_model
+from tasks.models import Task
 
 
-@admin.register(User)
-class CustomUserAdmin(UserAdmin):
-    list_display = ("id", "email", "created", "modified")
-    list_filter = ("is_active", "is_staff", "groups")
-    search_fields = ("email",)
-    ordering = ("email",)
-    filter_horizontal = (
-        "groups",
-        "user_permissions",
-    )
-
+class MyUserAdmin(EmailUserAdmin):
     fieldsets = (
         (None, {"fields": ("email", "password")}),
+        ("Personal Info", {"fields": ("first_name", "last_name")}),
         (
-            _("Permissions"),
-            {"fields": ("is_active", "is_staff", "is_superuser", "groups", "user_permissions")},
+            "Permissions",
+            {
+                "fields": (
+                    "is_active",
+                    "is_staff",
+                    "is_superuser",
+                    "is_verified",
+                    "groups",
+                    "user_permissions",
+                )
+            },
         ),
+        ("Important dates", {"fields": ("last_login", "date_joined")}),
+        ("Custom info", {"fields": ("date_of_birth",)}),
     )
-    add_fieldsets = ((None, {"classes": ("wide",), "fields": ("email", "password1", "password2")}),)
+
+
+admin.site.unregister(get_user_model())
+admin.site.register(get_user_model(), MyUserAdmin)
+admin.site.register(Task)

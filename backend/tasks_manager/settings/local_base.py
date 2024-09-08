@@ -1,6 +1,5 @@
 from .base import *
 
-
 DEBUG = True
 
 HOST = "http://localhost:8000"
@@ -74,3 +73,12 @@ CSP_SCRIPT_SRC += [LOCAL_HOST_URL, LOCAL_HOST_WS_URL]
 CSP_CONNECT_SRC += [LOCAL_HOST_URL, LOCAL_HOST_WS_URL]
 CSP_FONT_SRC += [LOCAL_HOST_URL]
 CSP_IMG_SRC += [LOCAL_HOST_URL]
+
+EMAIL_FROM = os.environ.get("AUTHEMAIL_DEFAULT_EMAIL_FROM") or "site@dev.com"
+EMAIL_BCC = os.environ.get("AUTHEMAIL_DEFAULT_EMAIL_BCC") or "site@dev.com"
+
+EMAIL_HOST_USER = os.environ.get("AUTHEMAIL_EMAIL_HOST_USER") or "site@dev.com"
+EMAIL_HOST_PASSWORD = os.environ.get("AUTHEMAIL_EMAIL_HOST_PASSWORD") or "testpassword"
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = False
+AUTH_EMAIL_VERIFICATION = False

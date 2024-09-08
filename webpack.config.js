@@ -28,6 +28,7 @@ module.exports = (env, argv) => {
       port: 3000,
       // Allow CORS requests from the Django dev server domain:
       headers: { "Access-Control-Allow-Origin": "*" },
+      client: { overlay: false },
     },
     context: __dirname,
     entry: ["./frontend/js/index.tsx"],

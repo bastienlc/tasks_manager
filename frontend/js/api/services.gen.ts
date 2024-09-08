@@ -4,7 +4,58 @@ import type { CancelablePromise } from "./core/CancelablePromise";
 import { OpenAPI } from "./core/OpenAPI";
 import { request as __request } from "./core/request";
 import type {
+  AccountsEmailChangeCreateData,
+  AccountsEmailChangeCreateResponse,
+  AccountsEmailChangeFormattedCreateData,
+  AccountsEmailChangeFormattedCreateResponse,
+  AccountsEmailChangeVerifyRetrieveResponse,
+  AccountsEmailChangeVerifyFormattedRetrieveData,
+  AccountsEmailChangeVerifyFormattedRetrieveResponse,
+  AccountsLoginCreateData,
+  AccountsLoginCreateResponse,
+  AccountsLoginFormattedCreateData,
+  AccountsLoginFormattedCreateResponse,
+  AccountsLogoutRetrieveResponse,
+  AccountsLogoutFormattedRetrieveData,
+  AccountsLogoutFormattedRetrieveResponse,
+  AccountsPasswordChangeCreateData,
+  AccountsPasswordChangeCreateResponse,
+  AccountsPasswordChangeFormattedCreateData,
+  AccountsPasswordChangeFormattedCreateResponse,
+  AccountsPasswordResetCreateData,
+  AccountsPasswordResetCreateResponse,
+  AccountsPasswordResetFormattedCreateData,
+  AccountsPasswordResetFormattedCreateResponse,
+  AccountsPasswordResetVerifiedCreateData,
+  AccountsPasswordResetVerifiedCreateResponse,
+  AccountsPasswordResetVerifiedFormattedCreateData,
+  AccountsPasswordResetVerifiedFormattedCreateResponse,
+  AccountsPasswordResetVerifyRetrieveResponse,
+  AccountsPasswordResetVerifyFormattedRetrieveData,
+  AccountsPasswordResetVerifyFormattedRetrieveResponse,
+  AccountsSignupCreateData,
+  AccountsSignupCreateResponse,
+  AccountsSignupFormattedCreateData,
+  AccountsSignupFormattedCreateResponse,
+  AccountsSignupVerifyRetrieveResponse,
+  AccountsSignupVerifyFormattedRetrieveData,
+  AccountsSignupVerifyFormattedRetrieveResponse,
+  AccountsUsersMeRetrieveResponse,
+  AccountsUsersMeFormattedRetrieveData,
+  AccountsUsersMeFormattedRetrieveResponse,
   RestRestCheckRetrieveResponse,
+  TasksListData,
+  TasksListResponse,
+  TasksCreateData,
+  TasksCreateResponse,
+  TasksRetrieveData,
+  TasksRetrieveResponse,
+  TasksUpdateData,
+  TasksUpdateResponse,
+  TasksPartialUpdateData,
+  TasksPartialUpdateResponse,
+  TasksDestroyData,
+  TasksDestroyResponse,
   UsersListData,
   UsersListResponse,
   UsersCreateData,
@@ -19,6 +70,383 @@ import type {
   UsersDestroyResponse,
 } from "./types.gen";
 
+export class AccountsService {
+  /**
+   * @param data The data for the request.
+   * @param data.requestBody
+   * @returns EmailChange
+   * @throws ApiError
+   */
+  public static accountsEmailChangeCreate(
+    data: AccountsEmailChangeCreateData,
+  ): CancelablePromise<AccountsEmailChangeCreateResponse> {
+    return __request(OpenAPI, {
+      method: "POST",
+      url: "/api/accounts/email/change/",
+      body: data.requestBody,
+      mediaType: "application/json",
+    });
+  }
+
+  /**
+   * @param data The data for the request.
+   * @param data.format
+   * @param data.requestBody
+   * @returns EmailChange
+   * @throws ApiError
+   */
+  public static accountsEmailChangeFormattedCreate(
+    data: AccountsEmailChangeFormattedCreateData,
+  ): CancelablePromise<AccountsEmailChangeFormattedCreateResponse> {
+    return __request(OpenAPI, {
+      method: "POST",
+      url: "/api/accounts/email/change{format}",
+      path: {
+        format: data.format,
+      },
+      body: data.requestBody,
+      mediaType: "application/json",
+    });
+  }
+
+  /**
+   * @returns unknown No response body
+   * @throws ApiError
+   */
+  public static accountsEmailChangeVerifyRetrieve(): CancelablePromise<AccountsEmailChangeVerifyRetrieveResponse> {
+    return __request(OpenAPI, {
+      method: "GET",
+      url: "/api/accounts/email/change/verify/",
+    });
+  }
+
+  /**
+   * @param data The data for the request.
+   * @param data.format
+   * @returns unknown No response body
+   * @throws ApiError
+   */
+  public static accountsEmailChangeVerifyFormattedRetrieve(
+    data: AccountsEmailChangeVerifyFormattedRetrieveData,
+  ): CancelablePromise<AccountsEmailChangeVerifyFormattedRetrieveResponse> {
+    return __request(OpenAPI, {
+      method: "GET",
+      url: "/api/accounts/email/change/verify{format}",
+      path: {
+        format: data.format,
+      },
+    });
+  }
+
+  /**
+   * @param data The data for the request.
+   * @param data.requestBody
+   * @returns Login
+   * @throws ApiError
+   */
+  public static accountsLoginCreate(
+    data: AccountsLoginCreateData,
+  ): CancelablePromise<AccountsLoginCreateResponse> {
+    return __request(OpenAPI, {
+      method: "POST",
+      url: "/api/accounts/login/",
+      body: data.requestBody,
+      mediaType: "application/json",
+    });
+  }
+
+  /**
+   * @param data The data for the request.
+   * @param data.format
+   * @param data.requestBody
+   * @returns Login
+   * @throws ApiError
+   */
+  public static accountsLoginFormattedCreate(
+    data: AccountsLoginFormattedCreateData,
+  ): CancelablePromise<AccountsLoginFormattedCreateResponse> {
+    return __request(OpenAPI, {
+      method: "POST",
+      url: "/api/accounts/login{format}",
+      path: {
+        format: data.format,
+      },
+      body: data.requestBody,
+      mediaType: "application/json",
+    });
+  }
+
+  /**
+   * Remove all auth tokens owned by request.user.
+   * @returns unknown No response body
+   * @throws ApiError
+   */
+  public static accountsLogoutRetrieve(): CancelablePromise<AccountsLogoutRetrieveResponse> {
+    return __request(OpenAPI, {
+      method: "GET",
+      url: "/api/accounts/logout/",
+    });
+  }
+
+  /**
+   * Remove all auth tokens owned by request.user.
+   * @param data The data for the request.
+   * @param data.format
+   * @returns unknown No response body
+   * @throws ApiError
+   */
+  public static accountsLogoutFormattedRetrieve(
+    data: AccountsLogoutFormattedRetrieveData,
+  ): CancelablePromise<AccountsLogoutFormattedRetrieveResponse> {
+    return __request(OpenAPI, {
+      method: "GET",
+      url: "/api/accounts/logout{format}",
+      path: {
+        format: data.format,
+      },
+    });
+  }
+
+  /**
+   * @param data The data for the request.
+   * @param data.requestBody
+   * @returns PasswordChange
+   * @throws ApiError
+   */
+  public static accountsPasswordChangeCreate(
+    data: AccountsPasswordChangeCreateData,
+  ): CancelablePromise<AccountsPasswordChangeCreateResponse> {
+    return __request(OpenAPI, {
+      method: "POST",
+      url: "/api/accounts/password/change/",
+      body: data.requestBody,
+      mediaType: "application/json",
+    });
+  }
+
+  /**
+   * @param data The data for the request.
+   * @param data.format
+   * @param data.requestBody
+   * @returns PasswordChange
+   * @throws ApiError
+   */
+  public static accountsPasswordChangeFormattedCreate(
+    data: AccountsPasswordChangeFormattedCreateData,
+  ): CancelablePromise<AccountsPasswordChangeFormattedCreateResponse> {
+    return __request(OpenAPI, {
+      method: "POST",
+      url: "/api/accounts/password/change{format}",
+      path: {
+        format: data.format,
+      },
+      body: data.requestBody,
+      mediaType: "application/json",
+    });
+  }
+
+  /**
+   * @param data The data for the request.
+   * @param data.requestBody
+   * @returns PasswordReset
+   * @throws ApiError
+   */
+  public static accountsPasswordResetCreate(
+    data: AccountsPasswordResetCreateData,
+  ): CancelablePromise<AccountsPasswordResetCreateResponse> {
+    return __request(OpenAPI, {
+      method: "POST",
+      url: "/api/accounts/password/reset/",
+      body: data.requestBody,
+      mediaType: "application/json",
+    });
+  }
+
+  /**
+   * @param data The data for the request.
+   * @param data.format
+   * @param data.requestBody
+   * @returns PasswordReset
+   * @throws ApiError
+   */
+  public static accountsPasswordResetFormattedCreate(
+    data: AccountsPasswordResetFormattedCreateData,
+  ): CancelablePromise<AccountsPasswordResetFormattedCreateResponse> {
+    return __request(OpenAPI, {
+      method: "POST",
+      url: "/api/accounts/password/reset{format}",
+      path: {
+        format: data.format,
+      },
+      body: data.requestBody,
+      mediaType: "application/json",
+    });
+  }
+
+  /**
+   * @param data The data for the request.
+   * @param data.requestBody
+   * @returns PasswordResetVerified
+   * @throws ApiError
+   */
+  public static accountsPasswordResetVerifiedCreate(
+    data: AccountsPasswordResetVerifiedCreateData,
+  ): CancelablePromise<AccountsPasswordResetVerifiedCreateResponse> {
+    return __request(OpenAPI, {
+      method: "POST",
+      url: "/api/accounts/password/reset/verified/",
+      body: data.requestBody,
+      mediaType: "application/json",
+    });
+  }
+
+  /**
+   * @param data The data for the request.
+   * @param data.format
+   * @param data.requestBody
+   * @returns PasswordResetVerified
+   * @throws ApiError
+   */
+  public static accountsPasswordResetVerifiedFormattedCreate(
+    data: AccountsPasswordResetVerifiedFormattedCreateData,
+  ): CancelablePromise<AccountsPasswordResetVerifiedFormattedCreateResponse> {
+    return __request(OpenAPI, {
+      method: "POST",
+      url: "/api/accounts/password/reset/verified{format}",
+      path: {
+        format: data.format,
+      },
+      body: data.requestBody,
+      mediaType: "application/json",
+    });
+  }
+
+  /**
+   * @returns unknown No response body
+   * @throws ApiError
+   */
+  public static accountsPasswordResetVerifyRetrieve(): CancelablePromise<AccountsPasswordResetVerifyRetrieveResponse> {
+    return __request(OpenAPI, {
+      method: "GET",
+      url: "/api/accounts/password/reset/verify/",
+    });
+  }
+
+  /**
+   * @param data The data for the request.
+   * @param data.format
+   * @returns unknown No response body
+   * @throws ApiError
+   */
+  public static accountsPasswordResetVerifyFormattedRetrieve(
+    data: AccountsPasswordResetVerifyFormattedRetrieveData,
+  ): CancelablePromise<AccountsPasswordResetVerifyFormattedRetrieveResponse> {
+    return __request(OpenAPI, {
+      method: "GET",
+      url: "/api/accounts/password/reset/verify{format}",
+      path: {
+        format: data.format,
+      },
+    });
+  }
+
+  /**
+   * @param data The data for the request.
+   * @param data.requestBody
+   * @returns Signup
+   * @throws ApiError
+   */
+  public static accountsSignupCreate(
+    data: AccountsSignupCreateData,
+  ): CancelablePromise<AccountsSignupCreateResponse> {
+    return __request(OpenAPI, {
+      method: "POST",
+      url: "/api/accounts/signup/",
+      body: data.requestBody,
+      mediaType: "application/json",
+    });
+  }
+
+  /**
+   * @param data The data for the request.
+   * @param data.format
+   * @param data.requestBody
+   * @returns Signup
+   * @throws ApiError
+   */
+  public static accountsSignupFormattedCreate(
+    data: AccountsSignupFormattedCreateData,
+  ): CancelablePromise<AccountsSignupFormattedCreateResponse> {
+    return __request(OpenAPI, {
+      method: "POST",
+      url: "/api/accounts/signup{format}",
+      path: {
+        format: data.format,
+      },
+      body: data.requestBody,
+      mediaType: "application/json",
+    });
+  }
+
+  /**
+   * @returns unknown No response body
+   * @throws ApiError
+   */
+  public static accountsSignupVerifyRetrieve(): CancelablePromise<AccountsSignupVerifyRetrieveResponse> {
+    return __request(OpenAPI, {
+      method: "GET",
+      url: "/api/accounts/signup/verify/",
+    });
+  }
+
+  /**
+   * @param data The data for the request.
+   * @param data.format
+   * @returns unknown No response body
+   * @throws ApiError
+   */
+  public static accountsSignupVerifyFormattedRetrieve(
+    data: AccountsSignupVerifyFormattedRetrieveData,
+  ): CancelablePromise<AccountsSignupVerifyFormattedRetrieveResponse> {
+    return __request(OpenAPI, {
+      method: "GET",
+      url: "/api/accounts/signup/verify{format}",
+      path: {
+        format: data.format,
+      },
+    });
+  }
+
+  /**
+   * @returns User
+   * @throws ApiError
+   */
+  public static accountsUsersMeRetrieve(): CancelablePromise<AccountsUsersMeRetrieveResponse> {
+    return __request(OpenAPI, {
+      method: "GET",
+      url: "/api/accounts/users/me/",
+    });
+  }
+
+  /**
+   * @param data The data for the request.
+   * @param data.format
+   * @returns User
+   * @throws ApiError
+   */
+  public static accountsUsersMeFormattedRetrieve(
+    data: AccountsUsersMeFormattedRetrieveData,
+  ): CancelablePromise<AccountsUsersMeFormattedRetrieveResponse> {
+    return __request(OpenAPI, {
+      method: "GET",
+      url: "/api/accounts/users/me{format}",
+      path: {
+        format: data.format,
+      },
+    });
+  }
+}
+
 export class RestService {
   /**
    * Check REST API
@@ -30,6 +458,124 @@ export class RestService {
     return __request(OpenAPI, {
       method: "GET",
       url: "/api/rest/rest-check/",
+    });
+  }
+}
+
+export class TasksService {
+  /**
+   * @param data The data for the request.
+   * @param data.limit Number of results to return per page.
+   * @param data.offset The initial index from which to return the results.
+   * @returns PaginatedTaskList
+   * @throws ApiError
+   */
+  public static tasksList(
+    data: TasksListData = {},
+  ): CancelablePromise<TasksListResponse> {
+    return __request(OpenAPI, {
+      method: "GET",
+      url: "/api/tasks/",
+      query: {
+        limit: data.limit,
+        offset: data.offset,
+      },
+    });
+  }
+
+  /**
+   * @param data The data for the request.
+   * @param data.requestBody
+   * @returns Task
+   * @throws ApiError
+   */
+  public static tasksCreate(
+    data: TasksCreateData,
+  ): CancelablePromise<TasksCreateResponse> {
+    console.log("OpenAPI.TOKEN", OpenAPI.TOKEN);
+    return __request(OpenAPI, {
+      method: "POST",
+      url: "/api/tasks/",
+      body: data.requestBody,
+      mediaType: "application/json",
+    });
+  }
+
+  /**
+   * @param data The data for the request.
+   * @param data.id
+   * @returns Task
+   * @throws ApiError
+   */
+  public static tasksRetrieve(
+    data: TasksRetrieveData,
+  ): CancelablePromise<TasksRetrieveResponse> {
+    return __request(OpenAPI, {
+      method: "GET",
+      url: "/api/tasks/{id}/",
+      path: {
+        id: data.id,
+      },
+    });
+  }
+
+  /**
+   * @param data The data for the request.
+   * @param data.id
+   * @param data.requestBody
+   * @returns Task
+   * @throws ApiError
+   */
+  public static tasksUpdate(
+    data: TasksUpdateData,
+  ): CancelablePromise<TasksUpdateResponse> {
+    return __request(OpenAPI, {
+      method: "PUT",
+      url: "/api/tasks/{id}/",
+      path: {
+        id: data.id,
+      },
+      body: data.requestBody,
+      mediaType: "application/json",
+    });
+  }
+
+  /**
+   * @param data The data for the request.
+   * @param data.id
+   * @param data.requestBody
+   * @returns Task
+   * @throws ApiError
+   */
+  public static tasksPartialUpdate(
+    data: TasksPartialUpdateData,
+  ): CancelablePromise<TasksPartialUpdateResponse> {
+    return __request(OpenAPI, {
+      method: "PATCH",
+      url: "/api/tasks/{id}/",
+      path: {
+        id: data.id,
+      },
+      body: data.requestBody,
+      mediaType: "application/json",
+    });
+  }
+
+  /**
+   * @param data The data for the request.
+   * @param data.id
+   * @returns void No response body
+   * @throws ApiError
+   */
+  public static tasksDestroy(
+    data: TasksDestroyData,
+  ): CancelablePromise<TasksDestroyResponse> {
+    return __request(OpenAPI, {
+      method: "DELETE",
+      url: "/api/tasks/{id}/",
+      path: {
+        id: data.id,
+      },
     });
   }
 }

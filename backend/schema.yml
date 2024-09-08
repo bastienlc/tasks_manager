@@ -4,6 +4,530 @@ info:
   version: 0.1.0
   description: A Django project boilerplate with Vinta's best practices
 paths:
+  /api/accounts/email/change/:
+    post:
+      operationId: accounts_email_change_create
+      tags:
+      - accounts
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmailChange'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/EmailChange'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/EmailChange'
+        required: true
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmailChange'
+          description: ''
+  /api/accounts/email/change{format}:
+    post:
+      operationId: accounts_email_change_formatted_create
+      parameters:
+      - in: path
+        name: format
+        schema:
+          type: string
+          enum:
+          - .json
+        required: true
+      tags:
+      - accounts
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmailChange'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/EmailChange'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/EmailChange'
+        required: true
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmailChange'
+          description: ''
+  /api/accounts/email/change/verify/:
+    get:
+      operationId: accounts_email_change_verify_retrieve
+      tags:
+      - accounts
+      security:
+      - tokenAuth: []
+      - {}
+      responses:
+        '200':
+          description: No response body
+  /api/accounts/email/change/verify{format}:
+    get:
+      operationId: accounts_email_change_verify_formatted_retrieve
+      parameters:
+      - in: path
+        name: format
+        schema:
+          type: string
+          enum:
+          - .json
+        required: true
+      tags:
+      - accounts
+      security:
+      - tokenAuth: []
+      - {}
+      responses:
+        '200':
+          description: No response body
+  /api/accounts/login/:
+    post:
+      operationId: accounts_login_create
+      tags:
+      - accounts
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Login'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Login'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Login'
+        required: true
+      security:
+      - tokenAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Login'
+          description: ''
+  /api/accounts/login{format}:
+    post:
+      operationId: accounts_login_formatted_create
+      parameters:
+      - in: path
+        name: format
+        schema:
+          type: string
+          enum:
+          - .json
+        required: true
+      tags:
+      - accounts
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Login'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Login'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Login'
+        required: true
+      security:
+      - tokenAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Login'
+          description: ''
+  /api/accounts/logout/:
+    get:
+      operationId: accounts_logout_retrieve
+      description: Remove all auth tokens owned by request.user.
+      tags:
+      - accounts
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  /api/accounts/logout{format}:
+    get:
+      operationId: accounts_logout_formatted_retrieve
+      description: Remove all auth tokens owned by request.user.
+      parameters:
+      - in: path
+        name: format
+        schema:
+          type: string
+          enum:
+          - .json
+        required: true
+      tags:
+      - accounts
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  /api/accounts/password/change/:
+    post:
+      operationId: accounts_password_change_create
+      tags:
+      - accounts
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PasswordChange'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PasswordChange'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PasswordChange'
+        required: true
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PasswordChange'
+          description: ''
+  /api/accounts/password/change{format}:
+    post:
+      operationId: accounts_password_change_formatted_create
+      parameters:
+      - in: path
+        name: format
+        schema:
+          type: string
+          enum:
+          - .json
+        required: true
+      tags:
+      - accounts
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PasswordChange'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PasswordChange'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PasswordChange'
+        required: true
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PasswordChange'
+          description: ''
+  /api/accounts/password/reset/:
+    post:
+      operationId: accounts_password_reset_create
+      tags:
+      - accounts
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PasswordReset'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PasswordReset'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PasswordReset'
+        required: true
+      security:
+      - tokenAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PasswordReset'
+          description: ''
+  /api/accounts/password/reset{format}:
+    post:
+      operationId: accounts_password_reset_formatted_create
+      parameters:
+      - in: path
+        name: format
+        schema:
+          type: string
+          enum:
+          - .json
+        required: true
+      tags:
+      - accounts
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PasswordReset'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PasswordReset'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PasswordReset'
+        required: true
+      security:
+      - tokenAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PasswordReset'
+          description: ''
+  /api/accounts/password/reset/verified/:
+    post:
+      operationId: accounts_password_reset_verified_create
+      tags:
+      - accounts
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PasswordResetVerified'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PasswordResetVerified'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PasswordResetVerified'
+        required: true
+      security:
+      - tokenAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PasswordResetVerified'
+          description: ''
+  /api/accounts/password/reset/verified{format}:
+    post:
+      operationId: accounts_password_reset_verified_formatted_create
+      parameters:
+      - in: path
+        name: format
+        schema:
+          type: string
+          enum:
+          - .json
+        required: true
+      tags:
+      - accounts
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PasswordResetVerified'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PasswordResetVerified'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PasswordResetVerified'
+        required: true
+      security:
+      - tokenAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PasswordResetVerified'
+          description: ''
+  /api/accounts/password/reset/verify/:
+    get:
+      operationId: accounts_password_reset_verify_retrieve
+      tags:
+      - accounts
+      security:
+      - tokenAuth: []
+      - {}
+      responses:
+        '200':
+          description: No response body
+  /api/accounts/password/reset/verify{format}:
+    get:
+      operationId: accounts_password_reset_verify_formatted_retrieve
+      parameters:
+      - in: path
+        name: format
+        schema:
+          type: string
+          enum:
+          - .json
+        required: true
+      tags:
+      - accounts
+      security:
+      - tokenAuth: []
+      - {}
+      responses:
+        '200':
+          description: No response body
+  /api/accounts/signup/:
+    post:
+      operationId: accounts_signup_create
+      tags:
+      - accounts
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Signup'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Signup'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Signup'
+        required: true
+      security:
+      - tokenAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Signup'
+          description: ''
+  /api/accounts/signup{format}:
+    post:
+      operationId: accounts_signup_formatted_create
+      parameters:
+      - in: path
+        name: format
+        schema:
+          type: string
+          enum:
+          - .json
+        required: true
+      tags:
+      - accounts
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Signup'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Signup'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Signup'
+        required: true
+      security:
+      - tokenAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Signup'
+          description: ''
+  /api/accounts/signup/verify/:
+    get:
+      operationId: accounts_signup_verify_retrieve
+      tags:
+      - accounts
+      security:
+      - tokenAuth: []
+      - {}
+      responses:
+        '200':
+          description: No response body
+  /api/accounts/signup/verify{format}:
+    get:
+      operationId: accounts_signup_verify_formatted_retrieve
+      parameters:
+      - in: path
+        name: format
+        schema:
+          type: string
+          enum:
+          - .json
+        required: true
+      tags:
+      - accounts
+      security:
+      - tokenAuth: []
+      - {}
+      responses:
+        '200':
+          description: No response body
+  /api/accounts/users/me/:
+    get:
+      operationId: accounts_users_me_retrieve
+      tags:
+      - accounts
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+          description: ''
+  /api/accounts/users/me{format}:
+    get:
+      operationId: accounts_users_me_formatted_retrieve
+      parameters:
+      - in: path
+        name: format
+        schema:
+          type: string
+          enum:
+          - .json
+        required: true
+      tags:
+      - accounts
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+          description: ''
   /api/rest/rest-check/:
     get:
       operationId: rest_rest_check_retrieve
@@ -12,7 +536,7 @@ paths:
       tags:
       - rest
       security:
-      - cookieAuth: []
+      - tokenAuth: []
       - {}
       responses:
         '200':
@@ -27,6 +551,154 @@ paths:
                       this, the REST API is working!
                   summary: Successful Response
           description: ''
+  /api/tasks/:
+    get:
+      operationId: tasks_list
+      parameters:
+      - name: limit
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - name: offset
+        required: false
+        in: query
+        description: The initial index from which to return the results.
+        schema:
+          type: integer
+      tags:
+      - tasks
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedTaskList'
+          description: ''
+    post:
+      operationId: tasks_create
+      tags:
+      - tasks
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Task'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Task'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Task'
+        required: true
+      security:
+      - tokenAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task'
+          description: ''
+  /api/tasks/{id}/:
+    get:
+      operationId: tasks_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+      tags:
+      - tasks
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task'
+          description: ''
+    put:
+      operationId: tasks_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+      tags:
+      - tasks
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Task'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Task'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Task'
+        required: true
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task'
+          description: ''
+    patch:
+      operationId: tasks_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+      tags:
+      - tasks
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedTask'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedTask'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedTask'
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task'
+          description: ''
+    delete:
+      operationId: tasks_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+      tags:
+      - tasks
+      security:
+      - tokenAuth: []
+      responses:
+        '204':
+          description: No response body
   /api/users/:
     get:
       operationId: users_list
@@ -46,7 +718,7 @@ paths:
       tags:
       - users
       security:
-      - cookieAuth: []
+      - tokenAuth: []
       responses:
         '200':
           content:
@@ -71,7 +743,7 @@ paths:
               $ref: '#/components/schemas/User'
         required: true
       security:
-      - cookieAuth: []
+      - tokenAuth: []
       responses:
         '201':
           content:
@@ -92,7 +764,7 @@ paths:
       tags:
       - users
       security:
-      - cookieAuth: []
+      - tokenAuth: []
       responses:
         '200':
           content:
@@ -124,7 +796,7 @@ paths:
               $ref: '#/components/schemas/User'
         required: true
       security:
-      - cookieAuth: []
+      - tokenAuth: []
       responses:
         '200':
           content:
@@ -155,7 +827,7 @@ paths:
             schema:
               $ref: '#/components/schemas/PatchedUser'
       security:
-      - cookieAuth: []
+      - tokenAuth: []
       responses:
         '200':
           content:
@@ -175,12 +847,34 @@ paths:
       tags:
       - users
       security:
-      - cookieAuth: []
+      - tokenAuth: []
       responses:
         '204':
           description: No response body
 components:
   schemas:
+    EmailChange:
+      type: object
+      properties:
+        email:
+          type: string
+          format: email
+          maxLength: 255
+      required:
+      - email
+    Login:
+      type: object
+      properties:
+        email:
+          type: string
+          format: email
+          maxLength: 255
+        password:
+          type: string
+          maxLength: 128
+      required:
+      - email
+      - password
     Message:
       type: object
       properties:
@@ -188,6 +882,29 @@ components:
           type: string
       required:
       - message
+    PaginatedTaskList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?offset=400&limit=100
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?offset=200&limit=100
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Task'
     PaginatedUserList:
       type: object
       required:
@@ -211,6 +928,57 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/User'
+    PasswordChange:
+      type: object
+      properties:
+        password:
+          type: string
+          maxLength: 128
+      required:
+      - password
+    PasswordReset:
+      type: object
+      properties:
+        email:
+          type: string
+          format: email
+          maxLength: 255
+      required:
+      - email
+    PasswordResetVerified:
+      type: object
+      properties:
+        code:
+          type: string
+          maxLength: 40
+        password:
+          type: string
+          maxLength: 128
+      required:
+      - code
+      - password
+    PatchedTask:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        title:
+          type: string
+          maxLength: 255
+        description:
+          type: string
+          nullable: true
+        completed:
+          type: boolean
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
     PatchedUser:
       type: object
       properties:
@@ -220,31 +988,73 @@ components:
         email:
           type: string
           format: email
+          title: Email address
           maxLength: 255
         is_active:
           type: boolean
-          description: Designates whether this user should be treated as active. Unselect
+          title: Active
+          description: Designates whether this user should be treated as active.  Unselect
             this instead of deleting accounts.
         is_staff:
           type: boolean
+          title: Staff status
           description: Designates whether the user can log into this admin site.
         is_superuser:
           type: boolean
           title: Superuser status
           description: Designates that this user has all permissions without explicitly
             assigning them.
-        created:
+    Signup:
+      type: object
+      description: |-
+        Don't require email to be unique so visitor can signup multiple times,
+        if misplace verification email.  Handle in view.
+      properties:
+        email:
           type: string
-          format: date-time
+          format: email
+          maxLength: 255
+        password:
+          type: string
+          maxLength: 128
+        first_name:
+          type: string
+          default: ''
+          maxLength: 30
+        last_name:
+          type: string
+          default: ''
+          maxLength: 30
+      required:
+      - email
+      - password
+    Task:
+      type: object
+      properties:
+        id:
+          type: integer
           readOnly: true
-        modified:
+        title:
           type: string
-          format: date-time
-          readOnly: true
-        last_login:
+          maxLength: 255
+        description:
           type: string
-          format: date-time
           nullable: true
+        completed:
+          type: boolean
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - created_at
+      - id
+      - title
+      - updated_at
     User:
       type: object
       properties:
@@ -254,38 +1064,20 @@ components:
         email:
           type: string
           format: email
+          title: Email address
           maxLength: 255
-        is_active:
-          type: boolean
-          description: Designates whether this user should be treated as active. Unselect
-            this instead of deleting accounts.
-        is_staff:
-          type: boolean
-          description: Designates whether the user can log into this admin site.
-        is_superuser:
-          type: boolean
-          title: Superuser status
-          description: Designates that this user has all permissions without explicitly
-            assigning them.
-        created:
+        first_name:
           type: string
-          format: date-time
-          readOnly: true
-        modified:
+          maxLength: 30
+        last_name:
           type: string
-          format: date-time
-          readOnly: true
-        last_login:
-          type: string
-          format: date-time
-          nullable: true
+          maxLength: 30
       required:
-      - created
       - email
       - id
-      - modified
   securitySchemes:
-    cookieAuth:
+    tokenAuth:
       type: apiKey
-      in: cookie
-      name: sessionid
+      in: header
+      name: Authorization
+      description: Token-based authentication with required prefix "Token"

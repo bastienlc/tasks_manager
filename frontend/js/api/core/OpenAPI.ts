@@ -40,13 +40,21 @@ export type OpenAPIConfig = {
   };
 };
 
+export const getToken: Resolver<string> = async (options: ApiRequestOptions) => {
+  let token = localStorage.getItem('authToken');
+  if (token != null) {
+    return token;
+  }
+  return "";
+}
+
 export const OpenAPI: OpenAPIConfig = {
   BASE: "",
   CREDENTIALS: "include",
   ENCODE_PATH: undefined,
   HEADERS: undefined,
   PASSWORD: undefined,
-  TOKEN: undefined,
+  TOKEN: getToken,
   USERNAME: undefined,
   VERSION: "0.1.0",
   WITH_CREDENTIALS: false,
